@@ -56,6 +56,7 @@ h1 {
 	display: flex;
 	width: 100%;
 	position: relative;
+	min-height: 3em;
 }
 
 #top-content>span {
@@ -133,7 +134,8 @@ h1 {
 
 .logged-content {
 	animation: fadeIn 2s;
-	height: 3em;
+	min-height: 3em;
+	padding-bottom: 2em;
 }
 
 @keyframes fadeIn {

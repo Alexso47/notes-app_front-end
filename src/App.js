@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import Note from './components/Note'
 import Notification from './components/Notification'
 import noteService from './services/notes'
 import loginService from './services/login'
+import LoginForm from './components/LoginForm'
+import NoteForm from './components/NoteForm'
+import NotesCollection from './components/NotesCollection'
 
 const App = () => {
 	const [notes, setNotes] = useState([]) 
@@ -70,18 +72,6 @@ const App = () => {
 		}
 	}
 
-	const handleNoteChange = (event) => {
-		setNewNote(event.target.value)
-	}
-
-	const handleUserChange = (event) => {
-		setUsername(event.target.value)
-	}
-
-	const handlePasswordChange = (event) => {
-		setPassword(event.target.value)
-	}
-
 	const handleLogin = async (event) => {
 		event.preventDefault()
 		
@@ -112,27 +102,6 @@ const App = () => {
 		setUsername('')
 		setPassword('')
 	}
-
-	// pasar a componente
-	const renderLoginForm = () => (
-		<form className='loginForm' onSubmit={handleLogin}>
-			<label htmlFor='Username'>Username</label>
-			<input type='text' value={username} name='Username' placeholder='Enter your username' onChange={handleUserChange}></input>
-			<br/>
-			<label htmlFor='Password'>Password</label>
-			<input type='password' value={password} name='Password' placeholder='Enter your password' onChange={handlePasswordChange}></input>
-			<br/>
-			<button type="submit"><span>Submit</span></button>
-		</form>
-	)
-
-	// pasar a componente
-	const renderNotesForm = () => (
-		<form onSubmit={addNote} className='newNoteForm'>
-			<input value={newNote} onChange={handleNoteChange} placeholder='type a new note'/>
-			<button type="submit">save</button>
-		</form>
-	)
   
 	const notesToShow = showAll
 		? notes
@@ -144,38 +113,31 @@ const App = () => {
 			<Notification message={errorMessage} />
 			{ 
 				user === null 
-				? renderLoginForm() 
+				? <LoginForm 
+					username={username} 
+					password={password} 
+					handleUserChange={({target}) => setUsername(target.value)} 
+					handlePasswordChange={({target}) => setPassword(target.value)} 
+					handleLogin={handleLogin}
+				/> 
 				: 
-				<div className='logged-content' id='top-content'>
-					<span>
-						Welcome { user.name } !
-						&nbsp;
-						<button onClick={handleLogout}>
-							Log-out
-						</button>
-					</span>
-					{renderNotesForm()}
-				</div>
+				<NoteForm
+					user={user}
+					handleLogout={handleLogout}
+					addNote={addNote}
+					newNote={newNote}
+					handleNoteChange={({target}) => setNewNote(target.value)}				
+				/>
 			}
 			<br/>
 			{
 				user !== null ?
-				<div className='logged-content'> 
-					<div className='important-button'>
-						<button onClick={() => setShowAll(!showAll)}>
-							show {showAll ? 'important' : 'all' }
-						</button>
-					</div>
-					<ul className='notesList'>
-						{notesToShow.map((note, i) => 
-						<Note
-							key={i}
-							note={note} 
-							toggleImportance={() => toggleImportanceOf(note.id)}
-						/>
-						)}
-					</ul>
-				</div>
+				<NotesCollection
+					showAll={showAll}
+					notesToShow={notesToShow}
+					toggleImportanceOf={toggleImportanceOf}
+					changeShowAll={() => setShowAll(!showAll)}
+				/>
 				: ''
 			}
 		</div>
