@@ -1,0 +1,28 @@
+.fas.fa-plus {
+	font-size: 1.3em;
+}
+
+.loginForm {
+	background-color: rgba(224, 255, 192, 0.205);
+	border-radius: 10%;
+	padding: 2em;
+	width: 350px;
+	text-align: center;
+	margin: 0 auto;
+	box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.034), 0 6px 13px 0 rgba(0, 0, 0, 0.19);
+	animation: fadeIn 1.5s;
+}
+
+.loginForm>label {
+	display: inline-block;
+	width: 6em;
+}
+
+.loginForm>input {
+	padding: 10px;
+	margin-bottom: 1em;
+}
+
+.loginForm>button {
+	margin-top: 1em;
+}

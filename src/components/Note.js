@@ -1,8 +1,9 @@
 import React from 'react'
+import '../css/Note.css'
 
 const Note = ({ note, toggleImportance }) => {
-	const label = note.important
-		? 'make not important' : 'make important'
+	const classIcon = note.important
+		? 'fas fa-star' : 'far fa-star'
 
 	const formatDate = (date) => {
 		let dateFormatted = new Date(date)
@@ -13,12 +14,13 @@ const Note = ({ note, toggleImportance }) => {
 		<li className='note'>
 			<div className='note-info'>
 				<span id='note-author'>{note.user.name}</span>
+				<span className='toggleImportance'><i title='Important' className={classIcon} onClick={toggleImportance}></i></span>
 				<span id='note-date'>{formatDate(note.date)}</span>
 			</div>
 			<div className='note-content'>
 				{note.content}
 			</div>
-			<button className='toggleImportance' onClick={toggleImportance}>{label}</button>
+			
 		</li>
 		)
 }

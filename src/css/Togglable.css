@@ -1,0 +1,31 @@
+.toggle-content {
+	text-align: center;
+}
+
+#buttonShow {
+	background-color: rgb(34, 158, 96);
+}
+
+#buttonShow:hover {
+	background-color: rgb(14, 93, 54);
+}
+
+.button-toggle {
+	padding: 1em;
+	margin: 1em;
+	outline: none;
+	border:none;
+	border-radius: 20%;
+	font-size: 16px;
+	color: white;
+	font-weight: 550;
+	cursor: pointer;
+}
+
+#buttonHide {
+	background-color: rgb(14, 93, 54);
+}
+
+#buttonHide:hover {
+	background-color: rgb(34, 158, 96);
+}

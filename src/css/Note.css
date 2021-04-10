@@ -1,0 +1,71 @@
+.note {
+	box-sizing: content-box;
+	display: inline-block;
+	vertical-align: middle;
+	text-align: center;
+	color: rgb(0, 0, 0);
+	background-color: rgba(205, 255, 232, 0.322);
+	box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.034), 0 6px 13px 0 rgba(0, 0, 0, 0.19);
+	border: rgba(129, 129, 129, 0.377) solid 1px;
+	border-top-left-radius: 15%;
+	border-bottom-right-radius: 15%;
+	margin: 1em;
+	padding: 1em;
+	width: 25%;
+	max-width: 50%;
+	min-width: 220px;
+	position: relative;
+	
+}
+
+.note-content {
+	width: 100%;
+	padding: 1em;
+	display: inline-block;
+	font-size: 1.1em;
+	font-weight: bold;
+}
+
+.note-info{
+	font-size: 1.1em;
+	color: rgb(67, 126, 101);
+	width: 100%;
+	display: inline-block;
+	min-height: 1.2em;
+}
+
+#note-author {
+	float: left;
+	padding-left: 1em;
+	color: rgb(4, 143, 108);
+	font-weight: bold;
+}
+
+#note-date {
+	padding-left: 1em;
+	font-size: 0.8em;
+	padding-top: 0.2em;
+	float: left;
+	vertical-align: middle;
+} 
+
+.notesList {
+	padding-left: 0;
+	text-align: center;
+}
+
+.toggleImportance {
+	border: none;
+	background-color: transparent;
+	float: right;
+	padding: 0 1em;
+}
+
+.fas.fa-star, .far.fa-star {
+	cursor: pointer;
+	color:rgb(255, 255, 88);
+}
+
+.fas.fa-star:hover, .far.fa-star:hover {
+	color:rgba(255, 255, 88, 0.671);
+}

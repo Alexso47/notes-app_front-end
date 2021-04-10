@@ -1,0 +1,86 @@
+.logged-content {
+	animation: fadeIn 2s;
+	min-height: 3em;
+	padding-bottom: 1em;
+}
+
+.filters {
+	width: 100%;
+	margin: 0 auto;
+	height: 3em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	background-color: rgba(255, 255, 255, 0.164);
+	animation: slideDown 0.5s;
+}
+
+.filter-button, .filters>input {
+	margin: 0 1em;
+	padding: 0.7em;
+	border: none;
+	height: 2.5em;
+	min-width: 7em;
+	animation: fadeIn 1s;
+}
+
+#clear-button {
+	margin-left: 1em;
+	background-color: rgba(255, 17, 17, 0.657);
+	animation: fadeIn 2s;
+}
+
+#clear-button:hover {
+	margin-left: 1em;
+	background-color: rgb(104, 12, 12);
+}
+
+.filters>input {
+	width: 20em;
+	min-width: 15em;
+	background-color: rgba(34, 148, 158, 0.555);
+	color: white;
+	font-size: 16px;
+	font-weight: bold;
+	outline: none;
+}
+
+.filters>input::placeholder {
+	color:rgba(255, 255, 255, 0.712);
+	font-weight:normal;
+}
+
+.filter-button {
+	font-weight: bold;
+	color: white;
+	background-color: rgba(34, 158, 96, 0.445);
+	outline: none;
+	cursor: pointer;
+}
+
+.filter-button:hover {
+	background-color: rgba(12, 56, 34, 0.37);
+}
+
+@media screen and (max-width: 1200px) {
+	.filters {
+		flex-direction: column;
+		height: 12em;
+		width: auto;
+		min-width: 250px;
+	}
+
+	.filters>button, .filters>input {
+		margin: 0.3em auto;
+	}
+
+	.filters>input {
+		width: auto;
+	}
+
+	#clear-button {
+		margin-left: auto;
+		
+	}
+}

@@ -78,8 +78,7 @@ const App = () => {
   
 	return (
 		<div>
-			<h1>Notes</h1>
-			<Notification message={errorMessage} />
+			<h1 className='title'>NOTES</h1>
 			{ 
 				user
 				?  <NoteForm
@@ -95,7 +94,7 @@ const App = () => {
 						handleLogin={handleLogin}
 					/>
 			}
-			<br/>
+			<Notification message={errorMessage} />
 			{
 				user 
 				?	<NotesCollection

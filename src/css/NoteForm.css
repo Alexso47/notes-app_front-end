@@ -1,0 +1,82 @@
+.logged-content {
+	animation: fadeIn 2s;
+	min-height: 3em;
+	padding-bottom: 1em;
+}
+
+#top-content {
+	display: flex;
+	width: 100%;
+	position: relative;
+	min-height: 3em;
+	height: 4em;
+}
+
+#top-content>span {
+	font-weight: bold;
+	position: absolute;
+	right: 10%;
+	order: 2;
+	text-align: right;
+}
+
+#logout-icon{
+	cursor: pointer;
+}
+
+#logout-icon:hover {
+	color: rgba(128, 128, 128, 0.342)
+}
+
+.newNoteForm {
+	position: absolute;
+	left: 10%;
+	order: 1;
+}
+
+.newNoteForm>input {
+	padding: 1em;
+	min-width: 30vw;
+	outline: none;
+	background-color: rgba(205, 255, 232, 0.322);
+	border: rgba(129, 129, 129, 0.212) solid 1px;
+}
+
+.newNoteForm>button {
+	padding: 0.4em;
+	margin-left: 1em;
+	color: white;
+	background-color: rgba(34, 158, 96, 0.609);
+	border: rgba(129, 129, 129, 0.212) solid 1px;
+	border-radius: 50%;
+	cursor: pointer;
+	font-weight: bold;
+	
+}
+
+.newNoteForm>button:hover {
+	background-color: rgba(21, 112, 68, 0.719);
+	border: rgba(129, 129, 129, 0.212) solid 1px;
+}
+
+@media screen and (max-width: 1200px) {
+	#top-content {
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		min-width: 330px;
+	}
+
+	#top-content>span {
+		position: initial;
+		padding: 0;
+		order: 1;
+		margin-bottom: 1em;
+	}
+
+    .newNoteForm {
+		position: initial;
+		padding: 0;
+		order: 2;
+	}
+}

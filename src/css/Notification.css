@@ -1,0 +1,13 @@
+.error {
+	display: inline-block;
+	width: 80%;
+	margin: 1em 10% 1em 10%;
+	color: red;
+	background: rgba(211, 211, 211, 0.397);
+	border: none;
+	border-radius: 5px;
+	padding: 1em 2em;
+	font-weight: bold;
+	animation: fadeIn 2s;
+	text-align: center;
+} 

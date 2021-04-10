@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import '../css/NoteForm.css'
 
 const NoteForm = ({username, handleLogout, addNote}) => {
     const [newNote, setNewNote] = useState('')
@@ -11,9 +12,8 @@ const NoteForm = ({username, handleLogout, addNote}) => {
         event.preventDefault()
 		const noteObject = {
 			content: newNote,
-			important: Math.random() > 0.5
+			important: false
 		}
-
         await addNote(noteObject)
         setNewNote('')
     }
@@ -23,13 +23,11 @@ const NoteForm = ({username, handleLogout, addNote}) => {
             <span>
                 Welcome { username } !
                 &nbsp;
-                <button onClick={handleLogout}>
-                    Log-out
-                </button>
+                <i id='logout-icon' title='Logout' className="fas fa-sign-out-alt" onClick={handleLogout}></i>
             </span>
             <form onSubmit={handleSubmit} className='newNoteForm'>
-                <input value={newNote} onChange={handleChange} placeholder='type a new note'/>
-                <button type="submit">save</button>
+                <input value={newNote} onChange={handleChange} placeholder='type a NEW NOTE'/>
+                <button title='Add note' type="submit"><i class="fas fa-plus"></i></button>
             </form>
         </div>
     )
