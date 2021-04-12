@@ -8,6 +8,7 @@
 
 .popup-confirm.message>span {
     display: block;
+    margin-top: 1em;
 }
 
 .popup-confirm.options {

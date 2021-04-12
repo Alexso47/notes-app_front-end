@@ -57,6 +57,7 @@
 	font-size: 1.1em;
 	color: rgb(67, 126, 101);
 	width: 100%;
+	min-width: 100%;
 	display: inline-block;
 	min-height: 1.2em;
 	user-select: none;
@@ -85,8 +86,9 @@
 .toggleImportance {
 	border: none;
 	background-color: transparent;
-	float: right;
 	padding: 0 1em;
+	position: absolute;
+	right:0;
 }
 
 .fas.fa-star, .far.fa-star {
