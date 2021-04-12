@@ -15,15 +15,42 @@
 	max-width: 50%;
 	min-width: 220px;
 	position: relative;
-	
+	animation: pop-in 0.5s;
 }
 
 .note-content {
+	max-width: 100%;
+	min-width: 100%;
+	margin-top: 1em;
 	width: 100%;
 	padding: 1em;
 	display: inline-block;
 	font-size: 1.1em;
 	font-weight: bold;
+	overflow-wrap: break-word;
+	animation: fadeIn 0.5s;
+}
+
+.editContent {
+	color: rgba(0, 0, 0, 0.466);
+	background-color: rgba(255, 255, 255, 0.109);
+	text-align: center;
+	max-width: 100%;
+	min-width: 100%;
+	resize: vertical;
+	height: 100%;
+	width: 100%;
+	padding: 1em;
+	margin-top: 1em;
+	display: inline-block;
+	font-size: 1.1em;
+	font-weight: bold;
+	font-family: 'Roboto Slab', serif;
+	outline: none;
+	border: none;
+	border-radius: 10%;
+	overflow: hidden;
+	animation: fadeIn 0.5s;
 }
 
 .note-info{
@@ -32,6 +59,7 @@
 	width: 100%;
 	display: inline-block;
 	min-height: 1.2em;
+	user-select: none;
 }
 
 #note-author {
@@ -39,6 +67,11 @@
 	padding-left: 1em;
 	color: rgb(4, 143, 108);
 	font-weight: bold;
+	cursor: pointer;
+}
+
+#note-author:hover {
+	color: rgba(4, 143, 108, 0.356);
 }
 
 #note-date {
@@ -48,11 +81,6 @@
 	float: left;
 	vertical-align: middle;
 } 
-
-.notesList {
-	padding-left: 0;
-	text-align: center;
-}
 
 .toggleImportance {
 	border: none;
@@ -64,8 +92,85 @@
 .fas.fa-star, .far.fa-star {
 	cursor: pointer;
 	color:rgb(255, 255, 88);
+	animation: fadeIn 0.5s;
 }
 
 .fas.fa-star:hover, .far.fa-star:hover {
 	color:rgba(255, 255, 88, 0.671);
+}
+
+.notesList {
+	padding-left: 0;
+	text-align: center;
+}
+
+.editButton {
+	color: rgb(4, 143, 108);
+	padding: 1em 0;
+	display: inline-block;
+	margin: 1em;
+}
+
+.fas.fa-edit {
+	cursor: pointer;
+	color: rgb(4, 143, 108);
+	text-align: center;
+}
+
+.fas.fa-edit:hover {
+	color: rgba(4, 143, 108, 0.356);
+}
+
+span.delete-button {
+	cursor: initial;
+	height: 100%;
+	display: inline-block;
+	margin: 1em;
+	animation: fadeIn 0.5s;
+}
+
+.delete-button>.fas.fa-trash {
+	cursor: pointer;
+	color: rgb(200, 17, 17);
+}
+
+.delete-button>.fas.fa-trash:hover {
+	color: rgba(255, 0, 0, 0.472);
+}
+
+.edit-buttons {
+	padding: 0.5em 1em;
+	margin: 0 0.6em;
+	font-family: 'Roboto Slab', serif;
+	font-weight: bold;
+	border: none;
+	outline: none;
+	font-size: 0.8em;
+	color: white;
+	cursor: pointer;
+	border-radius: 10px;
+	position: relative;
+	animation: fadeIn 0.5s;
+	user-select: none;
+}
+
+#clear-edit {
+	background-color: rgba(255, 0, 0, 0.801);	
+}
+
+#clear-edit:hover {
+	background-color: rgba(153, 1, 1, 0.746);	
+}
+
+#save-edit { 
+	background-color: rgba(15, 177, 91, 0.746);
+}
+
+#save-edit:hover {
+	background-color: rgba(9, 88, 46, 0.692);	
+}
+
+.deletedNote {
+	animation: removed-item-animation 1s cubic-bezier(0.55, -0.04, 0.91, 0.94) forwards;
+    transform-origin: 0% 100%;
 }

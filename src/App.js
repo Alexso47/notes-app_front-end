@@ -7,21 +7,24 @@ import NoteForm from './components/NoteForm'
 import NotesCollection from './components/NotesCollection'
 
 const App = () => {
-	const [notes, setNotes] = useState([]) 
+	const [notes, setNotes] = useState([])
 	const [errorMessage, setErrorMessage] = useState(null)
 
 	const [username, setUsername] = useState('')
 	const [password, setPassword] = useState('')
 	const [user, setUser] = useState(null)
 
+	const [modifiedNotes, setModifiedNotes] = useState(false)
+
 	useEffect(() => {
-		if(user !== null){
+		if(user !== null) {
 			noteService.getAll()
-			.then(initialNotes => {
-				setNotes(initialNotes)
-			})
+				.then(updatedNotes => {
+					setNotes(updatedNotes)
+				})
+			setModifiedNotes(false)
 		}
-	}, [user])
+	}, [user, modifiedNotes])
 
 	useEffect(() => {
 		const loggedUserJSON = window.localStorage.getItem('loggedNoteAppUser')
@@ -47,9 +50,23 @@ const App = () => {
 		}
 	}
 
+	const deleteNote = async (id) => {
+		try {
+			await noteService.deleteById(id)
+			const updatedNotes = notes.filter(note => note.id !== id)
+			setNotes(updatedNotes)
+		}
+		catch(error) {
+			setErrorMessage(`Note ${id} could not be deleted`)
+			setTimeout(() => {
+				setErrorMessage(null)
+			}, 10000)
+		}
+	}
+
 	const handleLogin = async (event) => {
 		event.preventDefault()
-		
+
 		try {
 			const userLogged = await loginService.login({ username, password })
 			window.localStorage.setItem( 'loggedNoteAppUser', JSON.stringify(userLogged) )
@@ -58,7 +75,7 @@ const App = () => {
 			setUser(userLogged)
 			setUsername('')
 			setPassword('')
-		} 
+		}
 		catch (exception) {
 			setErrorMessage('Wrong credentials')
 			setTimeout(() => {
@@ -75,37 +92,40 @@ const App = () => {
 		setUsername('')
 		setPassword('')
 	}
-  
+
 	return (
 		<div>
 			<h1 className='title'>NOTES</h1>
-			{ 
+			{
 				user
-				?  <NoteForm
+					?  <NoteForm
 						username={user.name}
 						handleLogout={handleLogout}
-						addNote={addNote}			
+						addNote={addNote}
 					/>
-				: 	<LoginForm 
-						username={username} 
-						password={password} 
-						handleUserChange={({target}) => setUsername(target.value)} 
-						handlePasswordChange={({target}) => setPassword(target.value)} 
+					: 	<LoginForm
+						username={username}
+						password={password}
+						handleUserChange={({ target }) => setUsername(target.value)}
+						handlePasswordChange={({ target }) => setPassword(target.value)}
 						handleLogin={handleLogin}
 					/>
 			}
 			<Notification message={errorMessage} />
 			{
-				user 
-				?	<NotesCollection
+				user
+					?	<NotesCollection
 						notes={notes}
 						setNotes={setNotes}
 						setErrorMessage={setErrorMessage}
+						userLogged = {user.username}
+						setModifiedNotes = {setModifiedNotes}
+						deleteNote = {deleteNote}
 					/>
-				: ''
+					: ''
 			}
 		</div>
 	)
 }
 
-export default App 
+export default App

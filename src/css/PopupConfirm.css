@@ -1,0 +1,36 @@
+.popup-confirm.message {
+    display: block;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    animation: fadeIn 0.5s;
+}
+
+.popup-confirm.message>span {
+    display: block;
+}
+
+.popup-confirm.options {
+    padding: 1em 1.5em;
+    text-align: center;
+    margin: 2em 1em 1em;
+    font-weight: bold;
+    outline: none;
+    border: rgb(149, 2, 2) solid 1px;
+    border-radius: 10%;
+    background-color: rgba(255, 0, 0, 0.876);
+    color: white;
+    animation: fadeIn 0.5s;
+    cursor: pointer;
+}
+
+.popup-confirm.options:hover {
+    background-color: rgba(255, 0, 0, 0.507);
+}
+
+.id-delete {
+    color: red;
+    font-weight: bold;
+    animation: fadeIn 0.5s;
+    overflow-wrap: break-word;
+}

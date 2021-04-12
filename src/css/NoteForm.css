@@ -42,6 +42,10 @@
 	border: rgba(129, 129, 129, 0.212) solid 1px;
 }
 
+.newNoteForm>input::placeholder {
+	color: rgba(95, 95, 95, 0.726);
+}
+
 .newNoteForm>button {
 	padding: 0.4em;
 	margin-left: 1em;

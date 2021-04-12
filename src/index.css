@@ -36,3 +36,34 @@ h1.title {
 	to { height: 1; }
 }
 
+@keyframes pop-in {
+    0% {
+      opacity: 0;
+      transform: translateY(-4rem) scale(.7);
+    }
+    100% {
+      opacity: 1;
+      transform: none;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+		opacity: 1;
+    }
+    100% {
+		opacity: 0;
+    }
+}
+
+@keyframes removed-item-animation {
+    0% {
+        opacity: 1;
+        transform: rotateZ(0);
+}
+ 
+    100% {
+        opacity: 0;
+        transform: translateY(600px) rotateZ(90deg);
+    }
+}

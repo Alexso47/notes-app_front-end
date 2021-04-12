@@ -6,7 +6,7 @@ const baseUrl = '/api/notes'
 let token = null
 
 const setToken = newToken => {
-  	token = `Bearer ${newToken}`
+	token = `Bearer ${newToken}`
 }
 
 const getAll = async () => {
@@ -28,12 +28,21 @@ const create = async newObject => {
 }
 
 const update = async (id, newObject) => {
-  	const config = {
+	const config = {
 		headers: { Authorization: token },
-  	}
+	}
 
-  	const response = await axios.put(`${baseUrl}/${id}`, newObject, config)
-  	return response.data
+	const response = await axios.put(`${baseUrl}/${id}`, newObject, config)
+	return response.data
 }
 
-export default { getAll, create, update, setToken }
+const deleteById = async (id) => {
+	const config = {
+		headers: { Authorization: token },
+	}
+	console.log(token)
+	const response = await axios.delete(`${baseUrl}/${id}`, config)
+	return response.data
+}
+
+export default { getAll, create, update, deleteById, setToken }
