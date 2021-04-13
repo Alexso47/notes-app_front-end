@@ -32,7 +32,6 @@
 }
 
 #clear-button:hover {
-	margin-left: 1em;
 	background-color: rgb(104, 12, 12);
 }
 
@@ -81,6 +80,5 @@
 
 	#clear-button {
 		margin-left: auto;
-		
 	}
 }

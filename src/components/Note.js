@@ -86,7 +86,7 @@ const Note = ({ note, toggleImportance, filterByUser, userLogged, setErrorMessag
 		setTimeout(async () => {
 			deleteNote(id)
 		}, 500)
-
+		clearTimeout()
 	}
 
 	const filterUserTitle = 'Created by ' + note.user.name
