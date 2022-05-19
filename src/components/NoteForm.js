@@ -27,7 +27,7 @@ const NoteForm = ({ username, handleLogout, addNote }) => {
 			</span>
 			<form onSubmit={handleSubmit} className='newNoteForm'>
 				<input value={newNote} onChange={handleChange} placeholder='type a NEW NOTE'/>
-				<button title='Add note' type="submit"><i className="fas fa-plus"></i></button>
+				<button title='Add note' id="newNoteForm__button" type="submit"><i className="fas fa-plus"></i></button>
 			</form>
 		</div>
 	)

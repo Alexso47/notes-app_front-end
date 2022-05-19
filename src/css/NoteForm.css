@@ -20,7 +20,7 @@
 	text-align: right;
 }
 
-#logout-icon{
+#logout-icon {
 	cursor: pointer;
 }
 
@@ -47,7 +47,6 @@
 }
 
 .newNoteForm>button {
-	padding: 0.4em;
 	margin-left: 1em;
 	color: white;
 	background-color: rgba(34, 158, 96, 0.609);
@@ -55,7 +54,7 @@
 	border-radius: 50%;
 	cursor: pointer;
 	font-weight: bold;
-	
+	padding: 10px;
 }
 
 .newNoteForm>button:hover {
@@ -78,7 +77,7 @@
 		margin-bottom: 1em;
 	}
 
-    .newNoteForm {
+	.newNoteForm {
 		position: initial;
 		padding: 0;
 		order: 2;
